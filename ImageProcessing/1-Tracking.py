@@ -24,10 +24,10 @@ while (1):
     upper_blue = np.array([130, 255, 255])
 
     # threshold HSV image to get only Blue Colors
-    mask = cv2.inRange(hsv, lower_blue, upper_blue)
+    # mask = cv2.inRange(hsv, lower_blue, upper_blue)
 
     # bitwise_AND mask and  original img
-    res = cv2.bitwise_and(frame, frame, mask=mask)
+    # res = cv2.bitwise_and(frame, frame, mask=mask)
 
     cv2.imshow('Frame', frame)
     cv2.imshow('mask', mask)
