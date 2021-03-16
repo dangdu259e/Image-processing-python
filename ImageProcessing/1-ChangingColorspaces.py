@@ -21,8 +21,8 @@ print(len(flags))
 #example
 img = cv2.imread('../Resource/people.jpg',1)
 
-img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)  #ảnh xám
+img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)  # dải hsv
 
 #đảo ngược màu BGR <=> RGB
 img_transfer = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
