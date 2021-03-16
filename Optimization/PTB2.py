@@ -23,17 +23,12 @@ def get_type_of_quadratic(a, b, c):
 # y = a*(math.pow(x,2)) + b*x + c
 def draw(a, b, c):
     # x = np.random.randint(-100, 100, size=100)
-    x = np.arange(start=-100, stop=101, step=1, dtype=int)
-
-    # print (x)
-    y = a * x ** 2 + b * x + c
-    # x = np.arange(start=-100, stop=100, step=1, dtype=int)
-    # x = np.linspace(-10, 10, 100)
-    #
+    # x = np.arange(start=-100, stop=100, step=5, dtype=int)
+    x = np.linspace(-10, 10, 1000)
     # print(x)
-    # print("-------------------")
-    # y = a * x**2 + b*x + c
-    # print("adfafdasdfasdf"+y)
+    y = a * x ** 2 + b * x + c
+    # print(y)
+
     fig, ax = plt.subplots()
     ax.plot(x, y)
 
@@ -43,7 +38,7 @@ def draw(a, b, c):
     return plt.show()
 
 
-draw(1, -3, 2)
+draw(1, 4, -12)
 
 # x = np.random.randint(1,10,size= 6)
 # print(x)
