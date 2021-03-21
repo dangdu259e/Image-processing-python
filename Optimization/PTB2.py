@@ -19,14 +19,13 @@ def get_type_of_quadratic(a, b, c):
 # print(get_type_of_quadratic(1, 1, -6))
 # print(get_type_of_quadratic(1, 2, 1))
 
-# a = []
-# y = a*(math.pow(x,2)) + b*x + c
 def draw(a, b, c):
     # x = np.random.randint(-100, 100, size=100)
     # x = np.arange(start=-100, stop=100, step=5, dtype=int)
     x = np.linspace(-10, 10, 1000)
     # print(x)
     y = a * x ** 2 + b * x + c
+    # y = a * math.pow(x,2) + b * x + c
     # print(y)
 
     fig, ax = plt.subplots()
