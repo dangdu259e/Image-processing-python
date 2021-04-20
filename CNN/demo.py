@@ -1,4 +1,7 @@
 # Import Libraries
+# install tensorflow: pip install --upgrade tensorflow==1.15
+# install matplotlib : pip install matplotlib
+# install cv2: pip install opencv-python
 import os
 from io import BytesIO
 import tarfile
