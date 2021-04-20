@@ -14,6 +14,12 @@ import tensorflow as tf
 
 
 # import helper methods
+# These methods help us perform the following tasks:
+#
+# Load the latest version of the pretrained DeepLab model
+# Load the colormap from the PASCAL VOC dataset
+# Adds colors to various labels, such as "pink" for people, "green" for bicycle and more
+# Visualize an image, and add an overlay of colors on various regions
 class DeepLabModel(object):
     """Class to load deeplab model and run inference."""
 
@@ -154,7 +160,9 @@ LABEL_NAMES = np.asarray([
 FULL_LABEL_MAP = np.arange(len(LABEL_NAMES)).reshape(len(LABEL_NAMES), 1)
 FULL_COLOR_MAP = label_to_color_image(FULL_LABEL_MAP)
 
+# --------------------------------------------------------------------------------------------------------------------------------------------
 # Select a pretrained model
+# We have trained the DeepLab model using various backbone networks. Select one from the MODEL_NAME list.
 MODEL_NAME = 'mobilenetv2_coco_voctrainaug'  # @param ['mobilenetv2_coco_voctrainaug', 'mobilenetv2_coco_voctrainval', 'xception_coco_voctrainaug', 'xception_coco_voctrainval']
 
 _DOWNLOAD_URL_PREFIX = 'http://download.tensorflow.org/models/'
@@ -182,8 +190,11 @@ print('download completed! loading DeepLab model...')
 
 MODEL = DeepLabModel(download_path)
 print('model loaded successfully!')
-
+# --------------------------------------------------------------------------------------------------------------------------------------------
 # Run on sample images
+# Select one of sample images (leave IMAGE_URL empty) or feed any internet image url for inference.
+#
+# Note that this colab uses single scale inference for fast computation, so the results may slightly differ from the visualizations in the README file, which uses multi-scale and left-right flipped inputs.
 SAMPLE_IMAGE = 'image1'  # @param ['image1', 'image2', 'image3']
 IMAGE_URL = ''  # @param {type:"string"}
 
