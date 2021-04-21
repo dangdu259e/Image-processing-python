@@ -198,7 +198,7 @@ print('model loaded successfully!')
 # Select one of sample images (leave IMAGE_URL empty) or feed any internet image url for inference.
 #
 # Note that this colab uses single scale inference for fast computation, so the results may slightly differ from the visualizations in the README file, which uses multi-scale and left-right flipped inputs.
-SAMPLE_IMAGE = 'image1'  # @param ['image1', 'image2', 'image3']
+SAMPLE_IMAGE = 'image2'  # @param ['image1', 'image2', 'image3']
 IMAGE_URL = ''  # @param {type:"string"}
 
 _SAMPLE_URL = ('https://github.com/tensorflow/models/blob/master/research/'
@@ -208,19 +208,24 @@ _SAMPLE_URL = ('https://github.com/tensorflow/models/blob/master/research/'
 def run_visualization(url):
     """Inferences DeepLab model and visualizes result."""
     try:
+        print('url img: ' + str(url))
         f = urllib.request.urlopen(url)
         jpeg_str = f.read()
         original_im = Image.open(BytesIO(jpeg_str))
+        print('original_im')
+        print("type original_im: " + str(type(original_im)))
+        width, height = original_im.size
+        print("(width, height) = " + "(" + str(width) + "," + str(height) + ")")
     except IOError:
         print('Cannot retrieve image. Please check url: ' + url)
         return
 
     print('running deeplab on image %s...' % url)
     resized_im, seg_map = MODEL.run(original_im)
-
+    print("resized_im = " + str(resized_im))
+    print("seg_map = " + str(seg_map))
     vis_segmentation(resized_im, seg_map)
 
 
 image_url = IMAGE_URL or _SAMPLE_URL % SAMPLE_IMAGE
-# cv2.imwrite('figu1.jpg', image_url)
 run_visualization(image_url)
